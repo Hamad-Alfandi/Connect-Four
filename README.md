@@ -1,5 +1,5 @@
 # Project-1
-## Memory Flash Cards
+## Connect Four
 ### [GitHub] | https://github.com/Hamad-Alfandi/Project-1 
 
 ### Description:
