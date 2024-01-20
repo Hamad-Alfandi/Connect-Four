@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas:
+    "nav nav"
+    "aside main"
+    "footer footer";
+  grid-gap: 5px;
+  background-color: black;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  height: 50px;
+  background-color: #f03f3c;
+  grid-area: nav;
+}
+aside {
+  background-color: yellow;
+  grid-area: aside;
+  max-width: 200px;
+}
+main {
+  background-color: red;
+  grid-area: main;
+}
+
+footer {
+  background-color: #63d629;
+  grid-area: footer;
+}
