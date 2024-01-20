@@ -20,9 +20,21 @@ function renderBoard() {
       const cell = document.createElement("div")
       cell.classList.add("cell", "empty")
       console.log(cell)
-      boardContainer.appendChild(cell);
+      cell.setAttribute("data-row", row)
+      cell.setAttribute("data-col", col)
+      cell.addEventListener("click", () => {
+        handleCellClick(row, col)
+      })
+      boardContainer.appendChild(cell)
     }
   }
+}
+
+function handleCellClick(row, col) {
+  const clickedRow = row
+  const clickedCol = col
+
+  
 }
 
 renderBoard()
