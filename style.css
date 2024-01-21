@@ -32,9 +32,9 @@ main {
 }
 #connectFourBoard {
   display: grid;
-  grid-template-columns: repeat(7, 1fr); /* 7 columns */
-  grid-template-rows: repeat(6, 1fr); /* 6 rows */
-  grid-gap: 5px; /* Adjust the gap between cells as needed */
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr); 
+  grid-gap: 5px; 
 }
 .cell {
   width: 50px;
