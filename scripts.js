@@ -35,67 +35,29 @@ function handleCellClick(row, col) {
   const clickedCol = col
 
   // console.log(clickedRow)
-  //fn when user click col 1 will add 1 at first empty col
-//   if (!board[clickedRow][clickedCol]) {
-//     board[clickedRow][clickedCol] = currentPlayer
-//     // displayToken(clickedRow, clickedCol)
-//     // checkForWin()
-//     // changeCurrentPlayer()
-//     } else {
-//       alert('This spot is already occupied!')
-//       }
-//       console.log(board)
 
-//if I click  any cell it at first col it will set 1 at the end of first col last empty row
-
-// board[clickedRow][clickedCol] = currentPlayer
-const checkForEmptyCol =()=>{
-  if(board[0][clickedCol] === 1){
-    alert('column is full!')
   
+  // board[clickedRow][clickedCol] = currentPlayer
+  const checkForEmptyCol = () => {
+    if (board[0][clickedCol] === 1) {
+      alert("column is full!, please choose another column (emoji)")
+    }
   }
-}
-
-
-
-  for(let i=5 ; i>=0 ; i--){
-  //   //set 1 at last empty row
-    if(board[i][clickedCol] ===0){
-      board[i][clickedCol]=currentPlayer
+  
+  //fn when user click col 1 will add 1 at first empty col
+  for (let i = 5; i >= 0; i--) {
+    //   //set 1 at last empty row
+    if (board[i][clickedCol] === 0) {
+      board[i][clickedCol] = currentPlayer
       break
-      }
-        
+    }
   }
 
- 
-
-
-console.log(board)
+  const changeCurrPlayer =()=>{
+    currentPlayer === 1 ? (currentPlayer=2):(currentPlayer=1)
+  }
+  changeCurrPlayer()
+  console.log(board)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 renderBoard()
