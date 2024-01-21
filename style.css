@@ -27,7 +27,7 @@ aside {
   max-width: 200px;
 }
 main {
-  background-color: red;
+  background-color: rgb(218, 255, 167);
   grid-area: main;
 }
 #connectFourBoard {
@@ -52,12 +52,12 @@ main {
 }
 
 .player1{
-
+  background-color: #ff0000;
 }
 
 
 .player2{
-
+  background-color: #4c88ff;
 }
 footer {
   background-color: #63d629;
