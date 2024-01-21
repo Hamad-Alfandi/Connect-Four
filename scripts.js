@@ -49,6 +49,14 @@ function handleCellClick(row, col) {
 //if I click  any cell it at first col it will set 1 at the end of first col last empty row
 
 // board[clickedRow][clickedCol] = currentPlayer
+const checkForEmptyCol =()=>{
+  if(board[0][clickedCol] === 1){
+    alert('column is full!')
+  
+  }
+}
+
+
 
   for(let i=5 ; i>=0 ; i--){
   //   //set 1 at last empty row
@@ -56,8 +64,10 @@ function handleCellClick(row, col) {
       board[i][clickedCol]=currentPlayer
       break
       }
-
+        
   }
+
+ 
 
 
 console.log(board)
