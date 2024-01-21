@@ -35,56 +35,43 @@ const checkWinner = () => {
   //console log if four neighbor are same either =1 or =2
   let isWinningMove = false
   //horizontal
-  
-  for(let c=0 ;c<6 ;c++){
-  for (let r = 0; r < 4; r++) {
-    // console.log(`check r:${r} c:${c}`)
-    if (
-      board[c][r] === 1 &&
-      board[c][r+1] === 1 &&
-      board[c][r+2] === 1 &&
-      board[c][r+3] === 1
-    ) {
-      isWinningMove = true
-      console.log('player 1 win')
-      return isWinningMove
-    }
-   else if (
-      board[c][r] === 2 &&
-      board[c][r+1] === 2 &&
-      board[c][r+2] === 2 &&
-      board[c][r+3] === 2
-    ) {
-      isWinningMove = true
-      console.log('player 2 win')
-      return isWinningMove
+  //0 -> 5
+  //0 -> 3
+  // 00 10 20 30
+  for (let c = 0; c < 6; c++) {
+    for (let r = 0; r < 4; r++) {
+      // console.log(`check r:${r} c:${c}`)
+      if (
+        (board[c][r] === 1 &&
+          board[c][r + 1] === 1 &&
+          board[c][r + 2] === 1 &&
+          board[c][r + 3] === 1) ||
+        (board[r][c] === 1 &&
+          board[r + 1][c] === 1 &&
+          board[r + 2][c] === 1 &&
+          board[r + 3][c] === 1) //error for read more col & row than arr
+      ) {
+        isWinningMove = true
+        console.log("player 1 win")
+        return isWinningMove
+      } else if (
+        (board[c][r] === 2 &&
+        board[c][r + 1] === 2 &&
+        board[c][r + 2] === 2 &&
+        board[c][r + 3] === 2)||
+        (board[r][c] === 2 &&
+          board[r + 1][c] === 2 &&
+          board[r + 2][c] === 2 &&
+          board[r + 3][c] === 2)//error for read more col & row than arr
+      ) {
+        isWinningMove = true
+        console.log("player 2 win")
+        return isWinningMove
+      }
     }
   }
-}
-  //vertical
-  // for (let j = 0; j <= 6; j += 4) {
-  //   if (
-  //     board[j][3] !== 0 &&
-  //     board[j][3] === board[j + 1][2] &&
-  //     board[j + 1][2] === board[j + 2][1] &&
-  //     board[j + 2][1] === board[j + 3][0]
-  //   ) {
-  //     isWinningMove = true
-  //     return isWinningMove
-  //   }
-  // }
 
-  //check diagonals
-  // if((board[0][0]===board[1][1] && board[1
-  //   [1]===board[2][2] && board[2][2]===board
-  //   [3][3]) || (board[0][3]===board[1][
-  //     2] && board[1][2]===board[2][1] && board[
-  //       2][1]===board[3][0])){
-  //         isWinningMove=true
-  //         }
-  //         if(!isWinningMove){
-  //           return false
-  //           }
+
 }
 
 function handleCellClick(row, col) {
