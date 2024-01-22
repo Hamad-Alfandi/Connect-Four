@@ -14,31 +14,30 @@ body {
 
 nav {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   justify-content: space-between;
-
   height: 50px;
-  background-color: #f03f3c;
+  background-color: #eae7f6;
   grid-area: nav;
 }
 aside {
-  background-color: yellow;
+  background-color: rgb(226, 226, 156);
   grid-area: aside;
   max-width: 200px;
 }
 main {
-  background-color: rgb(218, 255, 167);
+  background-color: rgb(32, 103, 246);
   grid-area: main;
 }
 #connectFourBoard {
   display: grid;
   grid-template-columns: repeat(7, 60px);
-  grid-template-rows:  repeat(6, 60px);
-  grid-gap: 5px; 
+  grid-template-rows: repeat(6, 60px);
+  grid-gap: 5px;
   align-items: center;
   text-align: center;
   justify-content: center;
-  place-items: center;
+  /* place-items: center; */
 }
 .cell {
   width: 60px;
@@ -59,16 +58,17 @@ main {
   text-align: center;
 }
 
-.player1{
+.player1 {
   background-color: #ff0000;
 }
 
-
-.player2{
-  background-color: #4c88ff;
+.player2 {
+  background-color: #eeff00;
+}
+.title{
+  align-items: center;
 }
 footer {
-  background-color: #63d629;
+  background-color: #eae7f6;
   grid-area: footer;
 }
-

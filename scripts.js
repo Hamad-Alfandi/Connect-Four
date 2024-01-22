@@ -42,6 +42,7 @@ const checkWinner = () => {
   for (let c = 0; c < 6; c++) {
     for (let r = 0; r < 4; r++) {
       // console.log(`check r:${r} c:${c}`)
+      // 
       if (
         (board[c][r] === 1 &&
           board[c][r + 1] === 1 &&
@@ -53,6 +54,7 @@ const checkWinner = () => {
           board[r + 3][c] === 1) //error for read more col & row than arr
       ) {
         isWinningMove = true
+        document.getElementById('winner').innerText =`Player ${currentPlayer} WIN`
         console.log("player 1 win")
         return isWinningMove
       } else if (
@@ -66,6 +68,8 @@ const checkWinner = () => {
           board[r + 3][c] === 2) //error for read more col & row than arr
       ) {
         isWinningMove = true
+        document.getElementById('winner').innerText =`Player ${currentPlayer} WIN`
+
         console.log("player 2 win")
         return isWinningMove
       }
@@ -84,6 +88,8 @@ const checkWinner = () => {
           board[row + 2][col + 2] === 1 &&
           board[row + 3][col + 3] === 1
         ) {
+          document.getElementById('winner').innerText =`Player ${currentPlayer} WIN`
+
           console.log("diag log player 1")
           // return true
         } else if (
@@ -93,6 +99,8 @@ const checkWinner = () => {
           board[row + 3][col + 3] === 2
         ) {
           {
+            document.getElementById('winner').innerText =`Player ${currentPlayer} WIN`
+
             console.log("diag log player 2")
             // return true
           }
@@ -112,6 +120,8 @@ const checkWinner = () => {
           board[r + 2][c - 2] == 1 &&
           board[r + 3][c - 3] == 1
         ) {
+          document.getElementById('winner').innerText =`Player ${currentPlayer} WIN`
+
           console.log("diag log player 1!!")
           // return true
         } else if (
@@ -120,6 +130,8 @@ const checkWinner = () => {
           board[r + 2][c - 2] == 2 &&
           board[r + 3][c - 3] == 2
         ) {
+          document.getElementById('winner').innerText =`Player ${currentPlayer} WIN`
+
           console.log("diag log player 2!!!")
           // return true
         }
@@ -143,7 +155,7 @@ function handleCellClick(row, col) {
   // board[clickedRow][clickedCol] = currentPlayer
 
   const checkForEmptyCol = () => {
-    if (board[0][clickedCol] === 1) {
+    if ((board[0][clickedCol] === 1) ||(board[0][clickedCol] === 2)) {
       alert("column is full!, please choose another column (emoji)")
       return false
     } else {
