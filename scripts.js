@@ -171,3 +171,6 @@ function handleCellClick(row, col) {
 } //handleCellClick()
 
 renderBoard()
+document.getElementById('reset').addEventListener('click',()=>{
+  location.reload()
+})
