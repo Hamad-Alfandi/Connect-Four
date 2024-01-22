@@ -10,8 +10,7 @@ let board = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
 ]
-document.getElementById('turn').innerText =`Turn Player: 1`
-
+document.getElementById("turn").innerText = `Turn Player: 1`
 
 function renderBoard() {
   const boardContainer = document.getElementById("connectFourBoard")
@@ -73,21 +72,6 @@ const checkWinner = () => {
     }
   }
 
-  //check winner from diaglog 51 42 33 24/ 52 43 34 25/
-  // const diagLogical = () => {
-  //   for (let r = 5; r <= 2; r--) {
-  //     if (
-  //       board[r][r -4] === 1 &&
-  //       board[r -1][r-3] === 1 &&
-  //       board[r -2][r-2] === 1 &&
-  //       board[r -3][r-1] === 1
-  //     ) {
-  //       isWinningMove = true
-  //       console.log("diag log player 1")
-  //       return isWinningMove
-  //     }
-  //   }
-  // }
 
   const diagLogical = () => {
     // Check diagonally (top-left to bottom-right)
@@ -101,32 +85,50 @@ const checkWinner = () => {
           board[row + 3][col + 3] === 1
         ) {
           console.log("diag log player 1")
-          return true
-        }
-        else if(board[row][col] === 2 &&
+          // return true
+        } else if (
+          board[row][col] === 2 &&
           board[row + 1][col + 1] === 2 &&
           board[row + 2][col + 2] === 2 &&
-          board[row + 3][col + 3] === 2){
-            {
-              console.log("diag log player 2")
-              return true
-            }
+          board[row + 3][col + 3] === 2
+        ) {
+          {
+            console.log("diag log player 2")
+            // return true
           }
+        }
       }
     }
- 
-    // for(let r =0 ; r<3;r++){ //06 15 24 33
-    //   for(let c=0;c<4;c++){
-    //       if(
-    //         board[][]
-    //       ){
-
-    //       }
-    //   }
-    // }
-  }//diagLogical()
+    
+    for (let r = 0; r < 3; r++) {
+      
+      //06 15 24 33// 23 32 41 50//
+      //03 12 21 30
+      for (let c = 6; c > 2; c--) {
+        
+        if (
+          board[r][c] == 1 &&
+          board[r + 1][c - 1] == 1 &&
+          board[r + 2][c - 2] == 1 &&
+          board[r + 3][c - 3] == 1
+        ) {
+          console.log("diag log player 1!!")
+          // return true
+        } else if (
+          board[r][c] == 2 &&
+          board[r + 1][c - 1] == 2 &&
+          board[r + 2][c - 2] == 2 &&
+          board[r + 3][c - 3] == 2
+        ) {
+          console.log("diag log player 2!!!")
+          // return true
+        }
+      }
+      
+    }
+  } //diagLogical()
   diagLogical()
-}
+}//checkWinner()
 
 function handleCellClick(row, col) {
   const clickedRow = row
@@ -134,7 +136,7 @@ function handleCellClick(row, col) {
 
   // console.log(clickedRow)
   const changeCurrPlayer = () => {
-    document.getElementById('turn').innerText =`Turn Player: ${currentPlayer}`
+    document.getElementById("turn").innerText = `Turn Player: ${currentPlayer}`
     currentPlayer === 1 ? (currentPlayer = 2) : (currentPlayer = 1)
   } //changeCurrPlayer()
 
@@ -175,6 +177,6 @@ function handleCellClick(row, col) {
 } //handleCellClick()
 
 renderBoard()
-document.getElementById('reset').addEventListener('click',()=>{
+document.getElementById("reset").addEventListener("click", () => {
   location.reload()
 })
