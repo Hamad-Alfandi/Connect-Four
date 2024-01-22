@@ -32,13 +32,17 @@ main {
 }
 #connectFourBoard {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr); 
+  grid-template-columns: repeat(7, 60px);
+  grid-template-rows:  repeat(6, 60px);
   grid-gap: 5px; 
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  place-items: center;
 }
 .cell {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border: 1px solid #333;
   display: flex;
   align-items: center;
@@ -46,10 +50,13 @@ main {
   cursor: pointer;
   font-size: 24px;
   border-radius: 50%;
+  text-align: center;
 }
 
 .empty {
   background-color: #fff;
+  align-items: center;
+  text-align: center;
 }
 
 .player1{
