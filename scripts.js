@@ -101,10 +101,26 @@ const checkWinner = () => {
           console.log("diag log player 1")
           return true
         }
+        else if(board[row][col] === 2 &&
+          board[row + 1][col + 1] === 2 &&
+          board[row + 2][col + 2] === 2 &&
+          board[row + 3][col + 3] === 2){
+            {
+              console.log("diag log player 2")
+              return true
+            }
+          }
       }
     }
  
-  }
+    // for(let r =0 ; r<3;r++){ //
+    //   for(let c=0;c<4;c++){
+    //       if(
+    //         board[][]
+    //       )
+    //   }
+    // }
+  }//diagLogical()
   diagLogical()
 }
 
@@ -114,6 +130,7 @@ function handleCellClick(row, col) {
 
   // console.log(clickedRow)
   const changeCurrPlayer = () => {
+    document.getElementById('turn').innerText =`Turn Player: ${currentPlayer}`
     currentPlayer === 1 ? (currentPlayer = 2) : (currentPlayer = 1)
   } //changeCurrPlayer()
 
