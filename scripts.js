@@ -42,7 +42,7 @@ const checkWinner = () => {
   for (let c = 0; c < 6; c++) {
     for (let r = 0; r < 4; r++) {
       // console.log(`check r:${r} c:${c}`)
-      // 
+      //
       if (
         (board[c][r] === 1 &&
           board[c][r + 1] === 1 &&
@@ -54,7 +54,9 @@ const checkWinner = () => {
           board[r + 3][c] === 1) //error for read more col & row than arr
       ) {
         isWinningMove = true
-        document.getElementById('winner').innerText =`Player ${currentPlayer} WIN`
+        document.getElementById(
+          "winner"
+        ).innerText = `Player ${currentPlayer} WIN`
         console.log("player 1 win")
         return isWinningMove
       } else if (
@@ -68,14 +70,15 @@ const checkWinner = () => {
           board[r + 3][c] === 2) //error for read more col & row than arr
       ) {
         isWinningMove = true
-        document.getElementById('winner').innerText =`Player ${currentPlayer} WIN`
+        document.getElementById(
+          "winner"
+        ).innerText = `Player ${currentPlayer} WIN`
 
         console.log("player 2 win")
         return isWinningMove
       }
     }
   }
-
 
   const diagLogical = () => {
     // Check diagonally (top-left to bottom-right)
@@ -88,7 +91,9 @@ const checkWinner = () => {
           board[row + 2][col + 2] === 1 &&
           board[row + 3][col + 3] === 1
         ) {
-          document.getElementById('winner').innerText =`Player ${currentPlayer} WIN`
+          document.getElementById(
+            "winner"
+          ).innerText = `Player ${currentPlayer} WIN`
 
           console.log("diag log player 1")
           // return true
@@ -99,7 +104,9 @@ const checkWinner = () => {
           board[row + 3][col + 3] === 2
         ) {
           {
-            document.getElementById('winner').innerText =`Player ${currentPlayer} WIN`
+            document.getElementById(
+              "winner"
+            ).innerText = `Player ${currentPlayer} WIN`
 
             console.log("diag log player 2")
             // return true
@@ -107,20 +114,20 @@ const checkWinner = () => {
         }
       }
     }
-    
+
     for (let r = 0; r < 3; r++) {
-      
       //06 15 24 33// 23 32 41 50//
       //03 12 21 30
       for (let c = 6; c > 2; c--) {
-        
         if (
           board[r][c] == 1 &&
           board[r + 1][c - 1] == 1 &&
           board[r + 2][c - 2] == 1 &&
           board[r + 3][c - 3] == 1
         ) {
-          document.getElementById('winner').innerText =`Player ${currentPlayer} WIN`
+          document.getElementById(
+            "winner"
+          ).innerText = `Player ${currentPlayer} WIN`
 
           console.log("diag log player 1!!")
           // return true
@@ -130,17 +137,18 @@ const checkWinner = () => {
           board[r + 2][c - 2] == 2 &&
           board[r + 3][c - 3] == 2
         ) {
-          document.getElementById('winner').innerText =`Player ${currentPlayer} WIN`
+          document.getElementById(
+            "winner"
+          ).innerText = `Player ${currentPlayer} WIN`
 
           console.log("diag log player 2!!!")
           // return true
         }
       }
-      
     }
   } //diagLogical()
   diagLogical()
-}//checkWinner()
+} //checkWinner()
 
 function handleCellClick(row, col) {
   const clickedRow = row
@@ -149,13 +157,15 @@ function handleCellClick(row, col) {
   // console.log(clickedRow)
   const changeCurrPlayer = () => {
     document.getElementById("turn").innerText = `Turn Player: ${currentPlayer}`
-    currentPlayer === 1 ? (currentPlayer = 2) : (currentPlayer = 1)
+   let changeColor= document.getElementById('turn');
+    currentPlayer === 1 ? (currentPlayer = 2)&& (changeColor.style.backgroundColor ='red')  : (currentPlayer = 1)&&(changeColor.style.backgroundColor ='yellow')
+
   } //changeCurrPlayer()
 
   // board[clickedRow][clickedCol] = currentPlayer
 
   const checkForEmptyCol = () => {
-    if ((board[0][clickedCol] === 1) ||(board[0][clickedCol] === 2)) {
+    if (board[0][clickedCol] === 1 || board[0][clickedCol] === 2) {
       alert("column is full!, please choose another column (emoji)")
       return false
     } else {

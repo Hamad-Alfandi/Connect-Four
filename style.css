@@ -38,6 +38,7 @@ main {
   text-align: center;
   justify-content: center;
   /* place-items: center; */
+  transition: bottom 0.5s ease-in-out;
 }
 .cell {
   width: 60px;
@@ -65,10 +66,21 @@ main {
 .player2 {
   background-color: #eeff00;
 }
-.title{
+#title {
   align-items: center;
+  text-align: center;
+  color: #333;
+  font-family: cursive;
 }
 footer {
   background-color: #eae7f6;
   grid-area: footer;
+}
+#turn {
+  position: absolute;
+  font-family: cursive;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  background-color: red;
 }
