@@ -45,6 +45,7 @@ main {
   justify-content: center;
   cursor: pointer;
   font-size: 24px;
+  border-radius: 50%;
 }
 
 .empty {
@@ -63,3 +64,4 @@ footer {
   background-color: #63d629;
   grid-area: footer;
 }
+

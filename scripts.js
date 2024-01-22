@@ -10,6 +10,8 @@ let board = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
 ]
+document.getElementById('turn').innerText =`Turn Player: 1`
+
 
 function renderBoard() {
   const boardContainer = document.getElementById("connectFourBoard")
@@ -113,11 +115,13 @@ const checkWinner = () => {
       }
     }
  
-    // for(let r =0 ; r<3;r++){ //
+    // for(let r =0 ; r<3;r++){ //06 15 24 33
     //   for(let c=0;c<4;c++){
     //       if(
     //         board[][]
-    //       )
+    //       ){
+
+    //       }
     //   }
     // }
   }//diagLogical()
