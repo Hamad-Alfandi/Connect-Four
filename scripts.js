@@ -1,7 +1,7 @@
 const ROWS = 6
 const COLS = 7
 
-let currentPlayer = 1
+let currentPlayer = 2
 let board = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
@@ -56,13 +56,13 @@ const checkWinner = () => {
         return isWinningMove
       } else if (
         (board[c][r] === 2 &&
-        board[c][r + 1] === 2 &&
-        board[c][r + 2] === 2 &&
-        board[c][r + 3] === 2)||
+          board[c][r + 1] === 2 &&
+          board[c][r + 2] === 2 &&
+          board[c][r + 3] === 2) ||
         (board[r][c] === 2 &&
           board[r + 1][c] === 2 &&
           board[r + 2][c] === 2 &&
-          board[r + 3][c] === 2)//error for read more col & row than arr
+          board[r + 3][c] === 2) //error for read more col & row than arr
       ) {
         isWinningMove = true
         console.log("player 2 win")
@@ -71,7 +71,41 @@ const checkWinner = () => {
     }
   }
 
+  //check winner from diaglog 51 42 33 24/ 52 43 34 25/
+  // const diagLogical = () => {
+  //   for (let r = 5; r <= 2; r--) {
+  //     if (
+  //       board[r][r -4] === 1 &&
+  //       board[r -1][r-3] === 1 &&
+  //       board[r -2][r-2] === 1 &&
+  //       board[r -3][r-1] === 1
+  //     ) {
+  //       isWinningMove = true
+  //       console.log("diag log player 1")
+  //       return isWinningMove
+  //     }
+  //   }
+  // }
 
+  const diagLogical = () => {
+    // Check diagonally (top-left to bottom-right)
+
+    for (let row = 0; row < 3; row++) {
+      for (let col = 0; col < 4; col++) {
+        if (
+          board[row][col] === 1 &&
+          board[row + 1][col + 1] === 1 &&
+          board[row + 2][col + 2] === 1 &&
+          board[row + 3][col + 3] === 1
+        ) {
+          console.log("diag log player 1")
+          return true
+        }
+      }
+    }
+ 
+  }
+  diagLogical()
 }
 
 function handleCellClick(row, col) {
