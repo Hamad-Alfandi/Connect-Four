@@ -157,9 +157,11 @@ function handleCellClick(row, col) {
   // console.log(clickedRow)
   const changeCurrPlayer = () => {
     document.getElementById("turn").innerText = `Turn Player: ${currentPlayer}`
-   let changeColor= document.getElementById('turn');
-    currentPlayer === 1 ? (currentPlayer = 2)&& (changeColor.style.backgroundColor ='red')  : (currentPlayer = 1)&&(changeColor.style.backgroundColor ='yellow')
-
+    let changeColor = document.getElementById("turn-player")
+    console.log(changeColor)
+    currentPlayer === 1
+      ? (currentPlayer = 2) && (changeColor.style.backgroundColor = "red")
+      : (currentPlayer = 1) && (changeColor.style.backgroundColor = "yellow")
   } //changeCurrPlayer()
 
   // board[clickedRow][clickedCol] = currentPlayer
