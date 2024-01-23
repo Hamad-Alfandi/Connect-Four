@@ -44,14 +44,15 @@ const checkWinner = () => {
       // console.log(`check r:${r} c:${c}`)
       //
       if (
-        (board[c][r] === 1 &&
-          board[c][r + 1] === 1 &&
-          board[c][r + 2] === 1 &&
-          board[c][r + 3] === 1) ||
-        (board[r][c] === 1 &&
-          board[r + 1][c] === 1 &&
-          board[r + 2][c] === 1 &&
-          board[r + 3][c] === 1) //error for read more col & row than arr
+        board[c][r] === 1 &&
+        board[c][r + 1] === 1 &&
+        board[c][r + 2] === 1 &&
+        board[c][r + 3] === 1
+        //   ||
+        // (board[r][c] === 1 &&
+        //   board[r + 1][c] === 1 &&
+        //   board[r + 2][c] === 1 &&
+        //   board[r + 3][c] === 1) //error for read more col & row than arr
       ) {
         isWinningMove = true
         document.getElementById(
@@ -60,14 +61,15 @@ const checkWinner = () => {
         console.log("player 1 win")
         return isWinningMove
       } else if (
-        (board[c][r] === 2 &&
-          board[c][r + 1] === 2 &&
-          board[c][r + 2] === 2 &&
-          board[c][r + 3] === 2) ||
-        (board[r][c] === 2 &&
-          board[r + 1][c] === 2 &&
-          board[r + 2][c] === 2 &&
-          board[r + 3][c] === 2) //error for read more col & row than arr
+        board[c][r] === 2 &&
+        board[c][r + 1] === 2 &&
+        board[c][r + 2] === 2 &&
+        board[c][r + 3] === 2
+        //   ||
+        // (board[r][c] === 2 &&
+        //   board[r + 1][c] === 2 &&
+        //   board[r + 2][c] === 2 &&
+        //   board[r + 3][c] === 2) //error for read more col & row than arr
       ) {
         isWinningMove = true
         document.getElementById(
@@ -77,6 +79,35 @@ const checkWinner = () => {
         console.log("player 2 win")
         return isWinningMove
       }
+    }
+  }
+//vertical
+  for (let c = 0; c < 7; c++) {
+    for (let r = 0; r < 3; r++) {
+      if (
+        board[r][c] === 1 &&
+        board[r + 1][c] === 1 &&
+        board[r + 2][c] === 1 &&
+        board[r + 3][c] === 1
+      ) {
+        isWinningMove = true
+        document.getElementById(
+          "winner"
+        ).innerText = `Player ${currentPlayer} WIN`
+        console.log("player 1 win")
+        return isWinningMove
+      } else if ((board[r][c] === 2 &&
+          board[r + 1][c] === 2 &&
+          board[r + 2][c] === 2 &&
+          board[r + 3][c] === 2)){
+            isWinningMove = true
+            document.getElementById(
+              "winner"
+            ).innerText = `Player ${currentPlayer} WIN`
+    
+            console.log("player 2 win")
+            return isWinningMove
+          }
     }
   }
 
