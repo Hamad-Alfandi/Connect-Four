@@ -1,32 +1,9 @@
-/* body{
-background-color: yellow;
-align-items: center;
-text-align: center;
-font-size: x-large;
-font-family: 'Arial', sans-serif;
-background-color: #f5f5f5;
-color: #333;
-margin: 0;
-padding: 0;
-}
-
-.play {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 24px;
-  font-weight: bold;
-  color: #ff5722;
-}
- */
-
-
-
- /* idx-sty.css */
-
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #b6e7ff;
+  text-align: center;
 }
 
 h1 {
@@ -36,24 +13,29 @@ h1 {
 }
 
 .play {
-  display: block;
-  margin: 50px auto;
-  padding: 15px 30px;
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-table;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
   text-align: center;
   text-decoration: none;
-  color: #fff;
-  /* background-color: #3498db; */
-  border-radius: 50px;
-  font-size: 1.5em;
-  animation: colorChange 2s infinite;
-  color: black;
-  background-color: #f7f258;
-  width: 100px; 
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
-@keyframes colorChange {
- 
-  50% {
-    background-color: #ff4747;
-  }
+.play:hover {
+  background-color: #fff;
+}
+
+.play:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
 }
 

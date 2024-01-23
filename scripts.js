@@ -10,6 +10,7 @@ let board = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
 ]
+
 document.getElementById("turn").innerText = `Turn Player: 1`
 
 function renderBoard() {
@@ -20,7 +21,6 @@ function renderBoard() {
     for (let col = 0; col < COLS; col++) {
       const cell = document.createElement("div")
       cell.classList.add("cell", "empty")
-      // console.log(cell)
       cell.setAttribute("data-row", row)
       cell.setAttribute("data-col", col)
       if (isWinningMove === false) {
@@ -37,34 +37,27 @@ function renderBoard() {
 const checkWinner = () => {
   for (let c = 0; c < 6; c++) {
     for (let r = 0; r < 4; r++) {
-      // console.log(`check r:${r} c:${c}`)
-      //
       if (
         board[c][r] === 1 &&
         board[c][r + 1] === 1 &&
         board[c][r + 2] === 1 &&
         board[c][r + 3] === 1
-    
       ) {
         isWinningMove = true
         document.getElementById(
           "winner"
         ).innerText = `Player ${currentPlayer} WIN`
-        console.log("player 1 win")
         return isWinningMove
       } else if (
         board[c][r] === 2 &&
         board[c][r + 1] === 2 &&
         board[c][r + 2] === 2 &&
         board[c][r + 3] === 2
-      
       ) {
         isWinningMove = true
         document.getElementById(
           "winner"
         ).innerText = `Player ${currentPlayer} WIN`
-
-        console.log("player 2 win")
         return isWinningMove
       }
     }
@@ -82,7 +75,7 @@ const checkWinner = () => {
         document.getElementById(
           "winner"
         ).innerText = `Player ${currentPlayer} WIN`
-        console.log("player 1 win")
+
         return isWinningMove
       } else if (
         board[r][c] === 2 &&
@@ -95,7 +88,6 @@ const checkWinner = () => {
           "winner"
         ).innerText = `Player ${currentPlayer} WIN`
 
-        console.log("player 2 win")
         return isWinningMove
       }
     }
@@ -116,8 +108,6 @@ const checkWinner = () => {
             "winner"
           ).innerText = `Player ${currentPlayer} WIN`
           isWinningMove = true
-          console.log("diag log player 1")
-          // return true
         } else if (
           board[row][col] === 2 &&
           board[row + 1][col + 1] === 2 &&
@@ -129,15 +119,12 @@ const checkWinner = () => {
               "winner"
             ).innerText = `Player ${currentPlayer} WIN`
             isWinningMove = true
-            console.log("diag log player 2")
-            // return true
           }
         }
       }
     }
 
     for (let r = 0; r < 3; r++) {
-     
       for (let c = 6; c > 2; c--) {
         if (
           board[r][c] == 1 &&
@@ -149,8 +136,6 @@ const checkWinner = () => {
             "winner"
           ).innerText = `Player ${currentPlayer} WIN`
           isWinningMove = true
-          console.log("diag log player 1!!")
-          // return true
         } else if (
           board[r][c] == 2 &&
           board[r + 1][c - 1] == 2 &&
@@ -161,34 +146,34 @@ const checkWinner = () => {
             "winner"
           ).innerText = `Player ${currentPlayer} WIN`
           isWinningMove = true
-          console.log("diag log player 2!!!")
-       
         }
       }
     }
   } //diagLogical()
-    if(isWinningMove === false) {diagLogical()}
+  if (isWinningMove === false) {
+    diagLogical()
+  }
 } //checkWinner()
 
 function handleCellClick(row, col) {
   const clickedRow = row
   const clickedCol = col
-
-  // console.log(clickedRow)
   const changeCurrPlayer = () => {
-   
-   if(isWinningMove ===false)
-   
-   { document.getElementById("turn").innerText = `Turn Player: ${currentPlayer}`
-    let changeColor = document.getElementById("turn-player")
-    console.log(changeColor)
-    currentPlayer === 1
-      ? (currentPlayer = 2) && (changeColor.style.backgroundColor = "red")
-      : (currentPlayer = 1) && (changeColor.style.backgroundColor = "yellow")}
+    if (isWinningMove === false) {
+      document.getElementById(
+        "turn"
+      ).innerText = `Turn Player: ${currentPlayer}`
+      let changeColor = document.getElementById("turn-player")
+      // console.log(changeColor)
+      currentPlayer === 1
+        ? (currentPlayer = 2) &&
+          (changeColor.style.background =
+            "radial-gradient(circle at 30% 30%, #ff6666, #cc0000)")
+        : (currentPlayer = 1) &&
+          (changeColor.style.background =
+            "radial-gradient(circle at 30% 30%, #ffffcc, #cccc00)")
+    }
   } //changeCurrPlayer()
-
-  // board[clickedRow][clickedCol] = currentPlayer
-
   const checkForEmptyCol = () => {
     if (board[0][clickedCol] === 1 || board[0][clickedCol] === 2) {
       alert("column is full!, please choose another column (emoji)")
@@ -197,14 +182,10 @@ function handleCellClick(row, col) {
       changeCurrPlayer()
       return true
     }
-  }
-  // changeCurrPlayer()
-  
+  } // changeCurrPlayer()
 
-  //fn when user click col 1 will add 1 at first empty col
-  if (checkForEmptyCol() && isWinningMove ===false) {
+  if (checkForEmptyCol() && isWinningMove === false) {
     for (let i = 5; i >= 0; i--) {
-      //   //set 1 at last empty row
       if (board[i][clickedCol] === 0) {
         board[i][clickedCol] = currentPlayer
 
@@ -219,11 +200,11 @@ function handleCellClick(row, col) {
 
     checkWinner()
   }
-
-  console.log(board)
 } //handleCellClick()
 
-if(isWinningMove === false) {renderBoard()}
+if (isWinningMove === false) {
+  renderBoard()
+}
 document.getElementById("reset").addEventListener("click", () => {
   location.reload()
 })
