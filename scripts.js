@@ -35,16 +35,11 @@ function renderBoard() {
 
 //check the winner function
 const checkWinner = () => {
-
-const playerWin = ()=>{
-  isWinningMove = true
-  document.getElementById(
-    "winner"
-  ).innerText = `Player ${currentPlayer} WIN`
-  document.getElementById(
-    "winner"
-  ).style.display = 'block'
-}
+  const playerWin = () => {
+    isWinningMove = true
+    document.getElementById("winner").innerText = `Player ${currentPlayer} WIN`
+    document.getElementById("winner").style.display = "block"
+  }
 
   for (let c = 0; c < 6; c++) {
     for (let r = 0; r < 4; r++) {
@@ -88,7 +83,6 @@ const playerWin = ()=>{
   }
 
   const diagLogical = () => {
-
     // Check diagonally (top-left to bottom-right)
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 4; col++) {
@@ -145,7 +139,6 @@ function handleCellClick(row, col) {
         "turn"
       ).innerText = `Turn Player: ${currentPlayer}`
       let changeColor = document.getElementById("turn-player")
-      // console.log(changeColor)
       currentPlayer === 1
         ? (currentPlayer = 2) &&
           (changeColor.style.background =
@@ -175,7 +168,6 @@ function handleCellClick(row, col) {
             data-col="${clickedCol}"]`)
         selectedCell.classList.remove("empty")
         selectedCell.classList.add(`player${currentPlayer}`)
-        // console.log(selectedCell)
         break
       }
     }

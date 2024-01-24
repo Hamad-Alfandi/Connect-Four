@@ -12,7 +12,6 @@ body {
   background-color: black;
 }
 h2 {
-  /* font-size: 3em; */
   color: white;
   text-align: start;
 }
@@ -28,14 +27,12 @@ nav {
 aside {
   background-color: rgb(165, 218, 255);
   grid-area: aside;
-  /* max-width: 200px; */
   text-align: center;
   align-items: center;
 }
 main {
   background-color: rgb(32, 103, 246);
   grid-area: main;
-  /* grid-row: 1/2 span; */
 }
 #connectFourBoard {
   display: grid;
@@ -73,8 +70,6 @@ main {
   background: radial-gradient(circle at 30% 30%, #ffffcc, #cccc00);
 }
 #title {
-  /* align-items: center;
-  text-align: center; */
   color: #333;
   font-family: cursive;
   justify-content: center;
