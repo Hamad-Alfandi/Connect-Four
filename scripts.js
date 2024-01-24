@@ -41,6 +41,9 @@ const playerWin = ()=>{
   document.getElementById(
     "winner"
   ).innerText = `Player ${currentPlayer} WIN`
+  document.getElementById(
+    "winner"
+  ).style.display = 'block'
 }
 
   for (let c = 0; c < 6; c++) {
