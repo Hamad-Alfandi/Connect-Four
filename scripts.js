@@ -82,8 +82,8 @@ const checkWinner = () => {
     }
   }
 
-  const diagLogical = () => {
-    // Check diagonally (top-left to bottom-right)
+  const dialog = () => {
+    // Check dialog (top-left to bottom-right)
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 4; col++) {
         if (
@@ -123,9 +123,9 @@ const checkWinner = () => {
         }
       }
     }
-  } //diagLogical()
+  } //dialog()
   if (isWinningMove === false) {
-    diagLogical()
+    dialog()
   }
 } //checkWinner()
 
