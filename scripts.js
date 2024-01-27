@@ -40,7 +40,7 @@ const checkWinner = () => {
     document.getElementById("winner").innerText = `Player ${currentPlayer} WIN`
     document.getElementById("winner").style.display = "block"
   }
-
+  //rows
   for (let c = 0; c < 6; c++) {
     for (let r = 0; r < 4; r++) {
       if (
@@ -50,7 +50,6 @@ const checkWinner = () => {
         board[c][r + 3] === 1
       ) {
         playerWin()
-        // return isWinningMove
       } else if (
         board[c][r] === 2 &&
         board[c][r + 1] === 2 &&
@@ -61,7 +60,7 @@ const checkWinner = () => {
       }
     }
   }
-  //vertical
+  //columns
   for (let c = 0; c < 7; c++) {
     for (let r = 0; r < 3; r++) {
       if (
@@ -151,7 +150,7 @@ function handleCellClick(row, col) {
 
   const checkForEmptyCol = () => {
     if (board[0][clickedCol] === 1 || board[0][clickedCol] === 2) {
-      alert("column is full!, please choose another column (emoji)")
+      alert("column is full!, please choose another column")
       return false
     } else {
       changeCurrPlayer()
